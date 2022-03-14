@@ -13,7 +13,7 @@
     ``` bash
     import driver
 
-    driver = get_driver()
+    driver = driver.get_driver()
     ```
     で読み込む。
 
