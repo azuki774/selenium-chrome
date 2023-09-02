@@ -1,5 +1,7 @@
-FROM python:3.8-slim-buster as runner
+FROM python:3.11-slim-buster as runner
 LABEL description="selenium-chrome"
+WORKDIR /src
+COPY src/ /src
 RUN apt-get update \
   && apt-get install -y python3-selenium wget gnupg \
   && wget https://dl.google.com/linux/linux_signing_key.pub \
@@ -10,11 +12,5 @@ RUN apt-get update \
   && apt-get install -y google-chrome-stable \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  && pip3 install selenium \
-  && pip3 install bs4 \
-  && pip3 install webdriver-manager \
-  && mkdir /src
-WORKDIR /src
-COPY src/ /src
-ENTRYPOINT ["python3"]
+  ENTRYPOINT ["python3"]
 CMD ["main.py"]
