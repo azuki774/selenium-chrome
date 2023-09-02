@@ -12,5 +12,7 @@ RUN apt-get update \
   && apt-get install -y google-chrome-stable \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  ENTRYPOINT ["python3"]
+  && pip install -r /src/requirements.txt
+
+ENTRYPOINT ["python3"]
 CMD ["main.py"]
