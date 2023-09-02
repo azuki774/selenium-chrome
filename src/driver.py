@@ -12,7 +12,7 @@ def get_driver():
     options.add_argument("--disable-gpu")
     options.add_argument("--lang=ja-JP")
     options.add_argument("--disable-dev-shm-usage")
-    UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+    UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
     options.add_argument("--user-agent=" + UA)
     chrome_service = Service(executable_path="/usr/bin/chromedriver")
     driver = webdriver.Chrome(service=chrome_service, options=options)
